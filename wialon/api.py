@@ -134,7 +134,9 @@ class Wialon(object):
             params = json.dumps(kwargs, ensure_ascii=False)
 
         params = {
-            'svc': action.replace('_', '/', 1),
+            #'svc': action.replace('_', '/', 1),
+            #Replacing the first '_' with '/' make an error for some services expempl: core/get_account_data become core/get/account_data
+            'svc': action
             'params': params.encode("utf-8"),
             'sid': self.sid
         }
